@@ -1,0 +1,229 @@
+<%- include('./header.ejs')%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="card">
+        <% if(msg.length>0){%>
+          <div class="alert alert-success"><%=msg%></div>
+
+          <%}%> <% if(error.length>0){%>
+          <div class="alert alert-danger"><%=error%></div>
+
+          <%}%>
+        <a
+          href="#"
+          class="nav-link d-block link-body-emphasis text-decoration-none text-center mt-5"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="<%=image.url%>"
+            alt="mdo"
+            width="150"
+            height="150"
+            class="rounded-circle"
+          />
+        </a>
+        <div class="card-body text-center">
+          <h5 class="card-title">
+            <a
+              style="
+                text-transform: uppercase;
+                background-color: rgb(209, 66, 234);
+                border-radius: 10%;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+              "
+              class="nav-link bg"
+              href="#"
+            >
+              <%=name%>
+            </a>
+          </h5>
+          <p class="card-text">Web Developer</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Email:</strong>
+            <%=email%>
+          </li>
+          <li class="list-group-item">
+            <strong>Phone:</strong> (123) 456-7890
+          </li>
+          <li class="list-group-item">
+            <strong>Location:</strong> City, Country
+          </li>
+        </ul>
+        <div class="container p-2" style="max-width: 800px; margin: 0 auto">
+          <div
+            class="button-container"
+            style="
+              justify-content: space-between;
+              display: flex;
+              margin-top: 10px;
+            "
+          >
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#editprofile"
+            >
+              Edit Profile
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#changepassword"
+            >
+              Change Password
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="editprofile"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form
+          action="/updateProfile"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <div class="form-group">
+            <label for="newName">New Name</label>
+            <input
+              type="text"
+              name="n"
+              value="<%=name%>"
+              class="form-control"
+              id="newName"
+              placeholder="Enter your new name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="Email">Email</label>
+            <input
+              type="email"
+              name="e"
+              value="<%=email%>"
+              class="form-control"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="profileImage">Profile Image</label>
+            <input
+              type="file"
+              name="image"
+              class="form-control-file"
+              id="profileImage"
+            />
+            <img src="<%=image.url%>" alt="" width="80" />
+          </div>
+
+          <button type="submit" class="btn btn-success btn-block mt-5">
+            Save Changes
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- change Password -->
+<div
+  class="modal fade"
+  id="changepassword"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="updatePassword" method="post">
+          <div class="form-group">
+            <label for="oldPassword">Old Password</label>
+            <input
+              type="password"
+              name="op"
+              class="form-control"
+              id="oldPassword"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="np">New Password</label>
+            <input
+              type="password"
+              name="np"
+              class="form-control"
+              id="newPassword"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              name="cp"
+              class="form-control"
+              id="confirmPassword"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-success mt-3">
+              Change Password
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<%- include('./footer.ejs')%>

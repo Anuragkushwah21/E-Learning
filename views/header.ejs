@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Learning Platform</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a href="/home"
+        ><img
+          class="navbar-brand border"
+          src="/image/7725662.jpg"
+          alt=""
+          width="50"
+          style="border-radius: 50%"
+      /></a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown nav-link">
+              <div
+                class="dropdown-toggle"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Courses
+              </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Web Designing</a>
+                <a class="dropdown-item" href="#">MERN Stack</a>
+                <a class="dropdown-item" href="#">MEAN Stack</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+          <li class="nav-item my-auto">
+            <a
+              style="
+                text-transform: uppercase;
+                background-color: rgb(89, 87, 90);
+                border-radius: 10%;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+              "
+              class="nav-link bg"
+              href="/profile"
+            >
+            <%=name%>
+            </a>
+          </li>
+          <li class="nav-link d-block-emphasis text-decoration-none">
+            <a href="/profile"
+              ><img
+                src="<%=image.url%>"
+                alt="pro.."
+                width="40"
+                height="40"
+                class="rounded-circle"
+            /></a>
+          </li>
+          <li class="nav-item my-auto">
+            <a href="/logout">
+              <button class="btn btn-primary">Log out</button>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <script src="../public/js/register.js"></script>
+   
+  </body>
+</html>
